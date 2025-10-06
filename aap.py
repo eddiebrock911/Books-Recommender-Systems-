@@ -5,17 +5,23 @@ import logging
 
 # print(f"Flask version: {flash.__version__}")  # to avoid unused import warning
 
+# Google Drive file IDs
+BOOKS_ID = "1OJBUiW0OEf7QFi4SlYFpJCDwydYc3W2S"
+#PT_ID = "1h6-MBfVXwJQom-bxFK_4dQ_qJXJtxdAx"
+#POPULAR_ID = "1ZoU1HT6KolNAXxUsU6NFHjNzv2GGPY19"
+#SIMILARITY_ID = "1v-D5QQwySQols9SIWPCkU_vr3FaGOhCL"
+
+# URLs for direct download
+books = f"https://drive.google.com/uc?id={BOOKS_ID}"
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
 # Load data
 popular_df = pickle.load(open('popular.pkl', 'rb'))
-books = pickle.load(open('books.pkl', 'rb'))
 pt = pickle.load(open('pt.pkl', 'rb'))
 similarity_scores = pickle.load(open('similarity_scores.pkl', 'rb'))
-movies_df = pickle.load(open('movies.pkl', 'rb'))          # renamed
-movies_dict = pickle.load(open('movie_dict.pkl', 'rb'))
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+
 
 # Initialize Flask app
 app = Flask(__name__)
