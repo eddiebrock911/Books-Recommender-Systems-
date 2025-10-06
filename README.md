@@ -15,5 +15,7 @@ The app uses a pre-trained similarity model (`similarity_scores.pkl`) and book d
 - 🟢 Ready to deploy on **Render / Heroku / Railway**.
 
 ---
+## Live Demo 
+https://bookreckit.onrender.com
 
 ## 🗂️ Project Structure
