@@ -10,3 +10,9 @@ services:
       - key: PYTHON_VERSION
         value: 3.12.8
     autoDeploy: true
+```
+
+2. **Start command** (Render dashboard mein):
+
+```
+gunicorn aap:app

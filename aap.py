@@ -2,30 +2,44 @@ from flask import Flask, render_template, request, flash
 import pickle
 import numpy as np
 import logging
-
-# print(f"Flask version: {flash.__version__}")  # to avoid unused import warning
-
-# Google Drive file IDs
-BOOKS_ID = "1OJBUiW0OEf7QFi4SlYFpJCDwydYc3W2S"
-#PT_ID = "1h6-MBfVXwJQom-bxFK_4dQ_qJXJtxdAx"
-#POPULAR_ID = "1ZoU1HT6KolNAXxUsU6NFHjNzv2GGPY19"
-#SIMILARITY_ID = "1v-D5QQwySQols9SIWPCkU_vr3FaGOhCL"
-
-# URLs for direct download
-books = f"https://drive.google.com/uc?id={BOOKS_ID}"
+import gdown
+import os
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
+# Google Drive file IDs
+BOOKS_ID = "1OJBUiW0OEf7QFi4SlYFpJCDwydYc3W2S"
+PT_ID = "1h6-MBfVXwJQom-bxFK_4dQ_qJXJtxdAx"
+POPULAR_ID = "1ZoU1HT6KolNAXxUsU6NFHjNzv2GGPY19"
+SIMILARITY_ID = "1v-D5QQwySQols9SIWPCkU_vr3FaGOhCL"
+
+def download_if_not_exists(file_id, filename):
+    """Download file from Google Drive if it doesn't exist locally"""
+    if not os.path.exists(filename):
+        logging.info(f"Downloading {filename}...")
+        gdown.download(f"https://drive.google.com/uc?id={file_id}", filename, quiet=False)
+    else:
+        logging.info(f"{filename} already exists, skipping download")
+
+# Download files from Google Drive
+logging.info("Checking and downloading files from Google Drive...")
+download_if_not_exists(BOOKS_ID, "books.pkl")
+download_if_not_exists(PT_ID, "pt.pkl")
+download_if_not_exists(POPULAR_ID, "popular.pkl")
+download_if_not_exists(SIMILARITY_ID, "similarity_scores.pkl")
+
 # Load data
+logging.info("Loading data...")
 popular_df = pickle.load(open('popular.pkl', 'rb'))
 pt = pickle.load(open('pt.pkl', 'rb'))
+books = pickle.load(open('books.pkl', 'rb'))
 similarity_scores = pickle.load(open('similarity_scores.pkl', 'rb'))
-
+logging.info("All data loaded successfully!")
 
 # Initialize Flask app
 app = Flask(__name__)
-app.secret_key = 'ankit_super_secret_key_12345'
+app.secret_key = os.environ.get('SECRET_KEY', 'ankit_super_secret_key_12345')
 
 @app.route('/')
 def index():
