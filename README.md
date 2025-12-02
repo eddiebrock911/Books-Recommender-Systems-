@@ -29,7 +29,7 @@ project-folder/
 
 ## 👨‍💻 Developer
 
-**Ankit** ["Instagram"](https://www.instagram.com/__ankit._.op_/)
+**Ankit** [Instagram](https://www.instagram.com/__ankit._.op_/)
 
 Python | Machine Learning | Streamlit
 
@@ -96,4 +96,5 @@ File ID: 1xrydZhyakntow9_IZSmsx_bGEYQxVWCG
 यह प्रोजेक्ट educational purpose के लिए बनाया गया है। आप चाहें तो इसे MIT License के अंतर्गत release कर सकते हैं।
 
 ---
+
 
