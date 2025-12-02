@@ -27,6 +27,12 @@ project-folder/
 
 > नोट: आपकी स्क्रिप्ट में `similarity.pkl` Google Drive से लिंक के माध्यम से उपयोग हो रही है।
 
+## 👨‍💻 Developer
+
+**Ankit** ["Instagram"](https://www.instagram.com/__ankit._.op_/)
+
+Python | Machine Learning | Streamlit
+
 ---
 
 ## ⚙️ Requirements
@@ -91,11 +97,3 @@ File ID: 1xrydZhyakntow9_IZSmsx_bGEYQxVWCG
 
 ---
 
-## 👨‍💻 Developer
-
-**Ankit** ["Instagram"](https://www.instagram.com/__ankit._.op_/)
-Python | Machine Learning | Streamlit
-
----
-
-✅ README.md फ़ाइल GitHub पर सीधे paste करके use की जा सकती है।
